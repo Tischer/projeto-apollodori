@@ -8,8 +8,22 @@
     --azul: #2c2c54;
     --azul-escuro: #15152b;
     /* Sizes */
-    --border-size: 1px;
+    --border-size: solid 1px;
     --border-radius: 0.75rem;
+    --padding-bd: 0 2rem;
+    /* Animations */
+    --transition-d: .1s;
+    /* z-index */
+    --z-index-hover: 10;
+}
+
+
+/* Responsive sizes */
+
+@media(max-width: 1000px) {
+     :root {
+        --padding-bd: 0;
+    }
 }
 
 
@@ -25,6 +39,7 @@
     text-decoration: none;
     font-family: "Cardo", serif;
     color: var(--azul-escuro);
+    transition-duration: var(--transition-d);
 }
 
 *:focus {
@@ -34,7 +49,6 @@
 body {
     min-height: 100%;
     min-width: 100%;
-    padding: 0 clamp(0rem, 2rem, 2rem);
     overflow-x: hidden;
     display: grid;
     grid-template-columns: 1fr;
@@ -45,27 +59,54 @@ body {
 /* Header */
 
 header {
-    height: 120px;
+    height: fit-content;
     width: 100%;
+    padding: var(--padding-bd);
     display: grid;
     grid-template-rows: 120px;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "logo search search menu";
 }
 
-header .logo a {
-    height: 100%;
-    display: flex;
+header .hidder {
+    display: none;
 }
 
 header .search,
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
+
+/* grid sets */
+
+header .logo {
+    grid-area: logo;
+}
+
+header .search {
+    grid-area: search;
+}
+
+header .menu {
+    grid-area: menu;
+}
+
+
+/* logo sets */
+
+header .logo a {
+    height: 80%;
+    display: flex;
+}
+
+
+/* search sets */
+
 header .search .searcher {
-    width: 350px;
+    width: 80%;
     border-radius: 0.75rem 0 0 0.75rem;
     -webkit-border-radius: 0.75rem 0 0 0.75rem;
     -moz-border-radius: 0.75rem 0 0 0.75rem;
@@ -93,7 +134,11 @@ button {
 header .search button img {
     height: 100%;
     width: 100%;
+    cursor: pointer;
 }
+
+
+/* menu sets */
 
 header .menu ul {
     height: 100%;
@@ -102,4 +147,53 @@ header .menu ul {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+}
+
+header .menu ul li:hover {
+    color: var(--azul-escuro);
+    font-size: large;
+}
+
+
+/* Responsive header */
+
+@media (max-width: 1000px) {
+    header {
+        grid-template-rows: 100px repeat(2, fit-content);
+        grid-template-areas: "logo logo logo logo" "search search search search" "menu menu menu menu";
+    }
+    header .search,
+    .logo {
+        justify-content: center;
+    }
+    header .menu {
+        height: 50px;
+        margin-top: 10px;
+        background-color: var(--azul-escuro);
+    }
+    header .menu ul li a {
+        color: var(--branco);
+    }
+}
+
+
+/* main sets */
+
+main {
+    width: 100%;
+    min-height: 90vh;
+    max-height: fit-content;
+    padding: var(--padding-bd);
+    background-color: pink;
+}
+
+
+/* footer */
+
+footer {
+    min-height: 300px;
+    max-height: fit-content;
+    width: 100%;
+    padding: var(--padding-bd);
+    background-color: var(--azul-escuro);
 }
