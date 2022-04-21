@@ -11,6 +11,8 @@
     --border-size: solid 1px;
     --border-radius: 0.75rem;
     --padding-bases: 0 4rem;
+    --padding-cont: 0.5rem;
+    --margin-tb: 2rem 0;
     --font-g: 2rem;
     --font-m: 1.5rem;
     --font-p: 1rem;
@@ -29,6 +31,7 @@
     text-decoration: none;
     font-family: "Cardo", serif;
     color: var(--azul-escuro);
+    transition-duration: 1s;
 }
 
 *:focus {
@@ -115,8 +118,37 @@ main {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    margin: 2rem 0;
+    margin: var(--margin-tb);
 }
+
+main .sec-title {
+    width: 100%;
+    margin: var(--margin-tb);
+    font-size: var(--font-g);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .sec-title p {
+    width: fit-content;
+}
+
+main .sec-title p::before {
+    content: "";
+    position: absolute;
+    border-bottom: var(--border-size);
+    width: 0%;
+    bottom: 0;
+    transition-duration: 2s;
+}
+
+main section:hover>.sec-title p::before {
+    width: 100%;
+}
+
+
+/* Slider */
 
 main .swiper {
     width: 100%;
@@ -149,6 +181,51 @@ main .swiper .swiper-slide .autor-slider {
 
 main .swiper .swiper-slide img {
     height: 90%;
+}
+
+
+/* pubs */
+
+main .pubs {
+    height: fit-content;
+    width: 100%;
+    padding: var(--padding-bases);
+    margin: var(--margin-tb);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main .pubs .pub {
+    height: 250px;
+    width: 600px;
+    margin: var(--margin-tb);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+main .pubs .pub:hover {
+    box-shadow: 0 0 10px 1px var(--azul-escuro);
+}
+
+main .pubs .pub img {
+    padding: var(--padding-cont);
+}
+
+main .pubs .pub .text-pub {
+    height: 100%;
+    padding: var(--padding-cont);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main .pubs .pub .text-pub .title {
+    font-size: var(--font-m);
+    font-weight: bolder;
 }
 
 
