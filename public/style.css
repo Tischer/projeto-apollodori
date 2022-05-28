@@ -295,3 +295,78 @@ footer .container .itens .item:hover>p::before,
 
 
 /* Tanaka */
+    
+
+
+    /* Informações da publicação */
+
+main .info{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5px;
+    border: solid 0.3rem;
+    border-radius: 1rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+    
+main .perfil{
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 3px;
+    border: solid 1px; /*só pra vizualizar*/
+}
+    
+main .text{
+    margin-left: 12px;
+}
+    
+main .topicp{
+    margin-top: 8px;
+}
+    
+main .topic{
+    font-weight: bold;
+}
+    
+    /* Conteudo do livro */
+    
+main .book{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 10px;
+    border: solid 1px;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: justify;
+}
+    
+main h2.titulopub{
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 2.3rem;
+}
+    
+main div.book p{
+    font-size: 1.2rem;
+}
+
+    
+    /*Parte de recomendações de outros livros*/
+    
+main .recomendacao{
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: solid 1px;
+    border-radius: var(--border-radius);
+}
+    
+main img.recom{
+    width: 40%;
+    float: top;
+    border-radius: var(--border-radius);
+}
